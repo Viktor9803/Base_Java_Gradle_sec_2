@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<head th:replace="baseJava/layout :: head"></head>
 <body>
 
-	<header th:insert="/menu :: menuprincipal"></header>
+	<header th:insert="baseJava/menu :: menuprincipal"></header>
 
 	<div class="jumbotron bg-white-50 p-5"
 		style="height: 90vh; overflow-y: auto;">
@@ -33,7 +33,7 @@
 
 		<h1 class="text-center">BIENVENIDO</h1>
 
-		<div class="container">
+		<!-- <div class="container">
 
 			<div class="starter-template">
 				<h1 th:text="${msg.title}"></h1>
@@ -41,11 +41,11 @@
 				<p class="bg-primary" th:text="${msg.content}"></p>
 
 				<div sec:authorize="hasRole('ROLE_HOME')">
-					<!-- El tipo de usuario es ROLE_ADMIN display -->
+					El tipo de usuario es ROLE_ADMIN display
 					<p class="bg-info" th:text="${msg.etraInfo}"></p>
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
-					<!-- El tipo de usuario es ROLE_ADMIN display -->
+					El tipo de usuario es ROLE_ADMIN display
 					<p class="bg-info">Felicitaciones, tiene el permiso ROLE_ADMIN
 					</p>
 				</div>
@@ -55,14 +55,14 @@
 				</form>
 			</div>
 
-		</div>
+		</div> -->
 
 	</div>
 
-	<footer th:replace="/layout :: footer"></footer>
+	<footer th:replace="baseJava/layout :: footer"></footer>
 
-	<script th:inline="javascript"
-		th:src="@{/JS/database_java/dataRestController.js}"></script>
+
+	<script th:inline="javascript" th:src="@{/JS/dataRestController.js}"></script>
 
 </body>
 </html>
