@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light"
+	th:fragment="menuprincipal">
+	<div class="ms-lg-5 container-fluid justify-content-between">
+		<a class="navbar-brand" th:href="@{#}">BaseJava</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="fa-solid fa-bars"></span>
+		</button>
+
+		<!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#ftco-nav" aria-controls="ftco-nav"
+			aria-expanded="false" aria-label="Toggle navigation"
+			aria-haspopup="true">
+			<span class="fa-solid fa-bars"></span> Menu
+		</button> -->
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto mr-md-3 col-10">
+				<li class="nav-item active"><a th:href="@{/data_java/home}"
+					class="nav-link">Home</a></li>
+				<li class="nav-item"><a
+					th:href="@{/data_java/list}" class="nav-link">Lista de datos</a></li>
+				<li class="nav-item"><a
+					th:href="@{#}" class="nav-link">Men&uacute; 1</a></li>
+				<li class="nav-item"><a
+					th:href="@{#}" class="nav-link">Men&uacute; 2</a></li>
+				<li class="nav-item"><a
+					th:href="@{#}" class="nav-link">Men&uacute; 3</a></li>
+			</ul>
+
+			<div class="social-media">
+				<p class="my-3 d-flex">
+					<a href="#"
+						class="mx-2 d-flex align-items-center justify-content-center">
+						<span class="fab fa-facebook-f"><i class="sr-only">Facebook</i></span>
+					</a> <a href="#"
+						class="mx-2 d-flex align-items-center justify-content-center">
+						<span class="fab fa-twitter"><i class="sr-only">Twitter</i></span>
+					</a> <a href="#"
+						class="mx-2 d-flex align-items-center justify-content-center">
+						<span class="fab fa-instagram"><i class="sr-only">Instagram</i></span>
+					</a> <a href="#"
+						class="mx-2 d-flex align-items-center justify-content-center">
+						<span class="fab fa-dribbble"><i class="sr-only">Dribbble</i></span>
+					</a>
+				</p>
+			</div>
+
+			<div class="dropdown">
+				<div class="nav-item">
+					<a th:href="@{/data_java/login}" class="btn btn-outline-primary">Iniciar
+						sesi&oacute;n</a>
+				</div>
+				<div class="dropdown">
+					<button class="btn btn-outline-primary dropdown-toggle"
+						type="button" id="ddMenuUser" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<span></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-lg-end"
+						aria-labelledby="ddMenuUser">
+						<li><button class="dropdown-item" type="button">Pef&iacute;l</button></li>
+						<li><button class="dropdown-item" type="button">Cambiar
+								contrasena</button></li>
+						<li>
+							<form th:action="@{/data_java/logout}" method="POST">
+								<button type="submit" class="dropdown-item text-danger">Cerrar
+									sesi&oacute;n</button>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!-- <div class="order-lg-last">
+			<ul class="navbar-nav ml-auto mr-md-3">
+				<li sec:authorize="!isAuthenticated" class="nav-item"><a
+					th:href="@{/data_java/login}" class="btn btn-outline-primary">Iniciar
+						sesi&oacute;n</a></li>
+				<li sec:authorize="isAuthenticated" class="dropdown">
+					<button class="btn btn-outline-primary dropdown-toggle"
+						type="button" id="ddMenuUser" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<span sec:authentication="name"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="ddMenuUser">
+						<li><button class="dropdown-item" type="button">Pef&iacute;l</button></li>
+						<li><button class="dropdown-item" type="button">Cambiar
+								contrasena</button></li>
+						<li sec:authorize="isAuthenticated">
+							<form th:action="@{/data_java/logout}" method="POST">
+								<button type="submit" class="dropdown-item text-danger">Cerrar
+									sesi&oacute;n</button>
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>-->
+
+	</div>
+</nav>
