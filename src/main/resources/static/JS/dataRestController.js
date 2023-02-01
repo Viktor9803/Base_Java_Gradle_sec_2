@@ -77,7 +77,7 @@ $(document).ready(function() {
 		//console.log(ciEdit)
 		$.ajax({
 			type: "GET",
-			url: '/data_java/list/datal/' + ciEdit,
+			url: '/data/list/findCi/' + ciEdit,
 			success: function(result) {
 				console.log(result);
 				$('#ciField').val(result[0].ci);
@@ -116,7 +116,7 @@ $(document).ready(function() {
 	function actualizarRegistro() {
 		$.ajax({
 			type: "POST",
-			url: '/data_java/list/update/' + $('#ciField').val() + '/' + $('#nameField').val() + '/' + $('#lnameField').val() + '/' + $('#telfField').val() + '/' + $('#emailField').val() + '/' + $('#genderField').val()
+			url: '/data/list/update/' + $('#ciField').val() + '/' + $('#nameField').val() + '/' + $('#lnameField').val() + '/' + $('#telfField').val() + '/' + $('#emailField').val() + '/' + $('#genderField').val()
 		}).done(function() {
 			Swal.fire({
 				icon: 'success',
@@ -151,7 +151,7 @@ $(document).ready(function() {
 	function eliminarRegistro() {
 		$.ajax({
 			type: "POST",
-			url: '/data_java/list/dataDelete/' + $('#btnDeleteData').attr('cidlt')
+			url: '/data/list/delete/' + $('#btnDeleteData').attr('cidlt')
 		}).done(function() {
 			/*console.log($('#btnDeleteData').attr('cidlt'));*/
 			Swal.fire({
@@ -251,7 +251,7 @@ $(document).ready(function() {
 	function nuevoRegistro() {
 		$.ajax({
 			type: "POST",
-			url: '/data_java/list/create/' + $('#ciField').val() + '/' + $('#nameField').val() + '/' + $('#lnameField').val() + '/' + $('#telfField').val() + '/' + $('#emailField').val() + '/' + $('#genderField').val()
+			url: '/data/list/create/' + $('#ciField').val() + '/' + $('#nameField').val() + '/' + $('#lnameField').val() + '/' + $('#telfField').val() + '/' + $('#emailField').val() + '/' + $('#genderField').val()
 		}).done(function() {
 			Swal.fire({
 				icon: 'success',
@@ -306,10 +306,10 @@ $(document).ready(function() {
 			],*/
 			autoWidth: false,
 			language: {
-				url: '/JS/database_java/language.json'
+				url: '/JS/language.json'
 			},
 			ajax: {
-				url: '/data_java/list/data',
+				url: '/data/list/findAll',
 				dataSrc: '',
 				complete: function(xhr, status) {
 					//console.log(xhr);
