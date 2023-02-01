@@ -25,20 +25,21 @@ public class dataRestController {
 	
 //	Func findAll
 	@GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<DataC> listData(String role) {
+	public List<DataC> listData() {
 		List<DataC> findList = dataRepo.findAllList();
 		log.info("Datatable {}", findList);
 		return findList;
 	}
 
 //	Func save
-	@PostMapping(value = "/create/{ci}/{name}/{lname}/{telf}/{email}/{gender}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/create/{ci}/{name}/{lname}/{phone}/{email}/{gender}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void createData(@PathVariable("ci") Integer ci, @PathVariable("name") String name,
-			@PathVariable("lname") String lname, @PathVariable("telf") Integer telf, @PathVariable("email") String email,
+			@PathVariable("lname") String lname, @PathVariable("phone") Integer phone, @PathVariable("email") String email,
 			@PathVariable("gender") String gender) {
 		
-		dataRepo.createData(ci, name, lname, telf, email, gender);
-		log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}", ci, name, lname, telf, email, gender);
+		log.info("Datos {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
+		dataRepo.createData(ci, name, lname, phone, email, gender);
+		log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
 	}
 
 //	Func findById
@@ -63,13 +64,13 @@ public class dataRestController {
 	}
 	
 //	Func update
-	@PostMapping(value = "/update/{ci}/{name}/{lname}/{telf}/{email}/{gender}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/update/{ci}/{name}/{lname}/{phone}/{email}/{gender}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void updateData(@PathVariable("ci") Integer ci, @PathVariable("name") String name,
-			@PathVariable("lname") String lname, @PathVariable("telf") Integer telf, @PathVariable("email") String email,
+			@PathVariable("lname") String lname, @PathVariable("phone") Integer phone, @PathVariable("email") String email,
 			@PathVariable("gender") String gender) {
 		
-		dataRepo.updateData(ci, name, lname, telf, email, gender);
-		log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", ci, name, lname, telf, email, gender);
+		dataRepo.updateData(ci, name, lname, phone, email, gender);
+		log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
 	}
 
 }

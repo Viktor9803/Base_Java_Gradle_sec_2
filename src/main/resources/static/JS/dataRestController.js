@@ -82,11 +82,11 @@ $(document).ready(function() {
 				console.log(result);
 				$('#ciField').val(result[0].ci);
 
-				$('#nameField').val(result[0].nombre);
-				$('#lnameField').val(result[0].apellido);
-				$('#telfField').val(result[0].telefono);
+				$('#nameField').val(result[0].name);
+				$('#lnameField').val(result[0].lname);
+				$('#telfField').val(result[0].phone);
 				$('#emailField').val(result[0].email);
-				$('#genderField').val(result[0].genero);
+				$('#genderField').val(result[0].gender);
 				$('#idField').val(result[0].id);
 				idReg = result[0].id;
 			},
@@ -249,6 +249,7 @@ $(document).ready(function() {
 
 	/*#####Ajax nuevo registro#####*/
 	function nuevoRegistro() {
+		console.log($('#genderField').val());
 		$.ajax({
 			type: "POST",
 			url: '/data/list/create/' + $('#ciField').val() + '/' + $('#nameField').val() + '/' + $('#lnameField').val() + '/' + $('#telfField').val() + '/' + $('#emailField').val() + '/' + $('#genderField').val()
@@ -331,19 +332,19 @@ $(document).ready(function() {
 					}
 				},
 				{
-					"data": "nombre",
+					"data": "name",
 					"render": function(data, type, row, full) {
 						return data;
 					}
 				},
 				{
-					"data": "apellido",
+					"data": "lname",
 					"render": function(data, type, row, full) {
 						return data;
 					}
 				},
 				{
-					"data": "telefono",
+					"data": "phone",
 					"render": function(data, type, row, full) {
 						return data;
 					}
@@ -355,7 +356,7 @@ $(document).ready(function() {
 					}
 				},
 				{
-					"data": "genero",
+					"data": "gender",
 					"render": function(data, type, row, full) {
 						return data;
 					}
@@ -367,7 +368,7 @@ $(document).ready(function() {
 					}
 				},
 				{
-					"data": "boton1",
+					"data": "boton2",
 					"render": function(data, type, row, full) {
 						return '<a id="btnDeleteData" type="button" class="destruir btn btn-danger btn-sm" cidlt="' + row["ci"] + '"> Eliminar datos </a>';
 					}

@@ -22,22 +22,23 @@ import lombok.NonNull;
 @Table(name="datacrud")
 public class DataC {
 	
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		@NonNull
-		private Integer ci;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NonNull
+	private Integer ci;
 		
-		@NotNull
-		private Integer id;
-		@NotEmpty(message = "Llene el campo Nombre")
-		private String name;
-		@NotEmpty(message = "Llene el campo apellido")
-		private String fname;
-		@NotEmpty(message = "Ingrese un numero de contacto")
-		private String phone;
-		@NotEmpty(message = "Ingrese un correo electronico") @Email(message = "Ingrese un correo electronico valido")
-		private String email;
-		@NotEmpty(message = "Seleccione un genero")
-		private String gender;
+	@NotNull
+	private Integer id;
+	@NotEmpty(message = "Llene el campo Nombre")
+	private String name;
+	@NotEmpty(message = "Llene el campo apellido")
+	private String lname;
+	@NotEmpty(message = "Ingrese un numero de contacto")
+	private String phone;
+	@NotEmpty(message = "Ingrese un correo electronico") @Email(message = "Ingrese un correo electronico valido")
+	private String email;
+	@NotEmpty(message = "Seleccione un genero")
+	private String gender;
 
 }

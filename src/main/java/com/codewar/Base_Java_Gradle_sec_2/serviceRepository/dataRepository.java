@@ -36,7 +36,7 @@ public interface dataRepository extends CrudRepository<DataC, Integer> {
 //	Func save
 	@Modifying
 	@Transactional
-	@Query(value = "INSERT INTO `datacrud` (ci, name, fname, phone, email, gender) "
+	@Query(value = "INSERT INTO `datacrud` (ci, name, lname, phone, email, gender) "
 			+ "value (:ciField, :nameField, :lnameField, :telfField, :emailField, :genderField)", nativeQuery = true)
 	void createData(@Param("ciField") Integer ciField, @Param("nameField") String nameField, @Param("lnameField") String lnameField,
 			@Param("telfField") Integer telfField, @Param("emailField") String emailField, @Param("genderField") String genderField);
@@ -44,7 +44,7 @@ public interface dataRepository extends CrudRepository<DataC, Integer> {
 //	Func update
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE `datacrud` SET name = :nameField, fname = :lnameField, "
+	@Query(value = "UPDATE `datacrud` SET name = :nameField, lname = :lnameField, "
 			+ "phone = :telfField, email = :emailField, gender = :genderField WHERE ci = :ciField", nativeQuery = true)
 	void updateData(@Param("ciField") Integer ciField, @Param("nameField") String nameField, @Param("lnameField") String lnameField,
 			@Param("telfField") Integer telfField, @Param("emailField") String emailField, @Param("genderField") String genderField);
