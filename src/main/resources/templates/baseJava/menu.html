@@ -23,7 +23,7 @@
 					<a th:href="@{/data/list}"	class="nav-link">Lista de datos</a>
 				</li>
 				<li class="nav-item">
-					<a th:href="@{#}" class="nav-link">Men&uacute; 1</a>
+					<a th:href="@{#}" class="nav-link">Lista de usuarios</a>
 				</li>
 				<li class="nav-item">
 					<a th:href="@{#}" class="nav-link">Men&uacute; 2</a>
@@ -56,12 +56,13 @@
 			</div>
 
 			<div class="dropdown">
-				<div class="nav-item">
+				<div sec:authorize="!isAuthenticated" class="nav-item">
 					<a th:href="@{/login}" class="btn btn-outline-primary">Iniciar sesi&oacute;n</a>
 				</div>
-				<div class="dropdown">
+				
+				<div sec:authorize="isAuthenticated" class="dropdown">
 					<button class="btn btn-outline-primary dropdown-toggle"	type="button" id="ddMenuUser" data-bs-toggle="dropdown"	aria-expanded="false">
-						<span></span>
+						<span sec:authentication="name"></span>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="ddMenuUser">
 						<li>
@@ -70,8 +71,8 @@
 						<li>
 							<button class="dropdown-item" type="button">Cambiar contrasena</button>
 						</li>
-						<li>
-							<form th:action="@{/data/logout}" method="POST">
+						<li sec:authorize="isAuthenticated">
+							<form th:action="@{/logout}" method="POST">
 								<button type="submit" class="dropdown-item text-danger">Cerrar sesi&oacute;n</button>
 							</form>
 						</li>

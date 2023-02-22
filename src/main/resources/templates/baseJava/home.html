@@ -31,7 +31,8 @@
 				data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 
-		<h1 class="text-center">BIENVENIDO</h1>
+		<h1 sec:authorize="hasRole('ROLE_USER')" class="text-center">BIENVENIDO ROL USUARIO</h1>
+		<h1 sec:authorize="hasRole('ROLE_ADMIN')" class="text-center">BIENVENIDO ROL ADMINISTRADOR</h1>
 
 		<!-- <div class="container">
 
