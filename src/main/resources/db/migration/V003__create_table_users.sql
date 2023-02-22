@@ -6,7 +6,7 @@ CREATE TABLE `base_java_security`.`usuarios` (
   `lname` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `age` int(225) NOT NULL,
-  `create_data` datetime(6) DEFAULT current_timestamp(6),
+  `create_date` datetime(6) DEFAULT current_timestamp(6),
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `role` varchar(225) NOT NULL,
   PRIMARY KEY (`id`),

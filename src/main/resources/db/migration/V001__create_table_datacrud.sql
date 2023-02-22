@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS `datacrud` (
     id INT NOT NULL AUTO_INCREMENT,
     ci INT NOT NULL,
-    nombre VARCHAR(255),
-    apellido VARCHAR(255),
-    telefono VARCHAR(255),
+    name VARCHAR(255),
+    lname VARCHAR(255),
+    phone VARCHAR(255),
     email VARCHAR(255),
-    genero VARCHAR(255),
+    gender VARCHAR(255),
     PRIMARY KEY (ci),
     UNIQUE `UNIQUE` (id)
 );

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="baseJava/layout :: head"></head>
+<body>
+
+	<header th:insert="baseJava/menu :: menuprincipal"></header>
+
+	<div class="jumbotron bg-white-50 px-5">
+
+		<h1 class="text-primary text-center mt-4">Registros en la DB</h1>
+
+		<div class="text-lg-start text-center container">
+			<input type="button" id="btnFormModal" class="btn btn-primary" value="Agregar registro">
+		</div>
+	</div>
+
+	<div class="container pt-3">
+		<table id="dataListRequest" class="table table-striped table-bordered table-hover text-center font-weight-bold table-sm	table-responsive-sm">
+			<thead>
+				<tr class="text-capitalize text-center">
+					<th>ID</th>
+					<th>CI</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Tel&eacute;fono</th>
+					<th>Email</th>
+					<th>G&eacute;nero</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- MODAL NUEVO REGISTRO -->
+	<div th:fragment="modal-data-form" id="formModal" class="modal fade show" role="dialog" aria-hidden="true" style="width: 100% !important;">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="titleModalReg"></h4>
+					<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body modal-body-xl" style="height: 80vh; overflow-y: auto;">
+					<div id="form-modal-data">
+						<form id="formData" class="formulario-class-form">
+							<div class="form-row row">
+								<div class="form-group col-12 col-sm-3">
+									<label for="ciField" class="pl-2">CI</label>
+									<input type="text" class="form-control dataModalFormClass" id="ciField" placeholder="Cedula">
+									<p class="text-danger" id="validCi" hidden="hidden">Complete este campo</p>
+								</div>
+								<div class="form-group col-12 col-sm-3">
+									<label for="nameField" class="pl-2">Nombre</label>
+									<input type="text" class="form-control dataModalFormClass" id="nameField" placeholder="Nombre">
+									<p class="text-danger" id="validName" hidden="hidden">Complete este campo</p>
+								</div>
+								<div class="form-group col-12 col-sm-3">
+									<label for="lnameField" class="pl-2">Apellido</label>
+									<input type="text" class="form-control dataModalFormClass" id="lnameField" placeholder="Apellido">
+									<p class="text-danger" id="validLname" hidden="hidden">Complete este campo</p>
+								</div>
+								<div class="form-group col-12 col-sm-3">
+									<label for="telfField" class="pl-2">Telefono</label>
+									<input type="text" class="form-control dataModalFormClass" id="telfField" placeholder="Telefono">
+									<p class="text-danger" id="validTelf" hidden="hidden">Complete este campo</p>
+								</div>
+								<div class="form-group col-12 col-sm">
+									<label for="emailField" class="pl-2">Correo</label> 
+									<input type="email" class="form-control dataModalFormClass" id="emailField" placeholder="Correo electronico">
+									<p class="text-danger" id="validEmail" hidden="hidden">Complete este campo</p>
+								</div>
+								<div class="form-group col-12 col-sm">
+									<label for="genderField" class="pl-2">Genero</label>
+									<select name="genderField" class="form-select dataModalFormClass" id="genderField">
+										<option value="" selected>Seleccione una opcion</option>
+										<option value="Masculino">Masculino</option>
+										<option value="Femenino">Femenino</option>
+										<option value="No-binario">No binario</option>
+									</select>
+									<p class="text-danger" id="validGender" hidden="hidden">Eliga una opcion</p>
+								</div>
+								<input id="idField" hidden="hidden" value="">
+							</div>
+							<div class="mb-3 d-flex justify-content-center pt-3">
+								<button id="btnSaveData" type="submit" class="btn btn-primary px-4 align-items-center" value="Guardar">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="baseJava/layout :: footer"></footer>
+
+	<script th:inline="javascript" th:src="@{/JS/dataRestController.js}"></script>
+
+</body>
+</html>
