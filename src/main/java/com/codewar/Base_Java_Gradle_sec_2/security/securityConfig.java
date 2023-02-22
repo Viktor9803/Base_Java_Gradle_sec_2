@@ -35,7 +35,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 //				.antMatchers(HttpMethod.POST, "/data_java/list/dataDeleteAll").hasRole("ADMIN")
 //				.antMatchers(HttpMethod.POST, "/data_java/list/update/**").hasRole("ADMIN")
 				.and()
-					.formLogin().loginPage("/login")
+					.formLogin()
 					.failureUrl("/login?error").permitAll()
 					.and()
 						.logout().permitAll();
