@@ -6,11 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
+@EnableWebSecurity
 public class securityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -31,13 +33,13 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/data/list").hasAnyRole("USER", "ADMIN")
 				.antMatchers("/data/list/findAll").hasAnyRole("USER", "ADMIN")
 				.antMatchers(HttpMethod.POST, "/data/list/create/**").hasRole("ADMIN")
-				.antMatchers("/data/list/findCi/**").hasRole("ADMIN")
+				.antMatchers("/data/list/findCi/**").hasAnyRole("USER", "ADMIN")
 				.antMatchers(HttpMethod.POST, "/data/list/delete/**").hasRole("ADMIN")
 				.antMatchers(HttpMethod.POST, "/data/list/deleteAll").hasRole("ADMIN")
-				.antMatchers(HttpMethod.POST, "/data/list/update/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.POST, "/data/list/update/**").hasAnyRole("USER", "ADMIN")
 				.and()
-					.formLogin().defaultSuccessUrl("/data/home")
-					.failureUrl("/login?error").permitAll()
+					.csrf().disable()
+					.formLogin().defaultSuccessUrl("/data/home").failureUrl("/login?error").permitAll()
 					.and()
 						.logout().permitAll();
 	}
