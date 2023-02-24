@@ -31,7 +31,15 @@
 				data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 
-		<h1 th:text="'Bienvenido ' + ${#authentication.principal.username}" class="text-center"></h1>
+		<!-- <h1 th:text="'Bienvenido ' + ${#authentication.principal.username}" class="text-center"></h1> -->
+		
+		<!-- Obtener datos de sesión por medio de objetos userDetails, se debe realizar llamando al metodo de la clase myUserDetails sobreescrito -->
+		<div th:if="${#authentication.name != 'anonymousUser'}">
+			<h1 th:text="'Bienvenido ' + ${#authentication.name}" class="text-center"></h1>
+		</div>
+    	<div th:unless="${#authentication.name != 'anonymousUser'}">
+    		<h1 th:text="'Bienvenido por favor inicia sesi&oacute;n'" class="text-center"></h1>
+    	</div>
 
 		<div id="carouselExampleControls" class="carousel slide"
 			data-bs-ride="carousel">

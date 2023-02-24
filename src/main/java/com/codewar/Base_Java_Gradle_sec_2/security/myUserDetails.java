@@ -3,7 +3,6 @@ package com.codewar.Base_Java_Gradle_sec_2.security;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,8 +22,9 @@ public class myUserDetails implements UserDetails {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
 		this.active = user.isActive();
-		this.authorities = Arrays.stream(user.getRole().split(",")).map(SimpleGrantedAuthority::new)
-				.collect(Collectors.toList());
+		this.authorities = Arrays.asList(new SimpleGrantedAuthority(user.getRole()));
+//		this.authorities = Arrays.stream(user.getRole().split(",")).map(SimpleGrantedAuthority::new)
+//				.collect(Collectors.toList());
 	}
 
 	@Override
