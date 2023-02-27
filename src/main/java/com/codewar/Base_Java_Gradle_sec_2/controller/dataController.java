@@ -14,10 +14,16 @@ public class dataController {
 		return "baseJava/home";
 	}
 	
+	@GetMapping(value = "/login")
+	public String login() {
+		
+		return "baseJava/login";
+	}
+	
 	@GetMapping(value = "/list")
 	public String listData() {
 
-		return "baseJava/ListData.html";
+		return "baseJava/ListData";
 	}
 
 }
