@@ -39,9 +39,9 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST, "/data/list/update/**").hasAnyRole("USER", "ADMIN")
 				.and()
 					.csrf().disable()
-					.formLogin().defaultSuccessUrl("/data/home").failureUrl("/login?error").permitAll()
-					.and()
-						.logout().permitAll();
+					.formLogin().loginPage("/data/login").defaultSuccessUrl("/data/home").failureUrl("/data/login?error").permitAll()
+				.and()
+		        	.logout().logoutSuccessUrl("/data/home").invalidateHttpSession(true).permitAll();
 	}
 
 	@Bean

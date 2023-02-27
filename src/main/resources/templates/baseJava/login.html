@@ -8,15 +8,15 @@
 
 
 	<div class="container-fluid pt-5">
-		<div
-			class="row d-flex justify-content-center align-items-center">
+		<div class="row d-flex justify-content-center align-items-center">
 			<div class="col-md-9 col-lg-6 col-xl-5">
 				<img
 					src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
 					class="img-fluid" alt="Sample image">
 			</div>
 			<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-				<form id="login">
+				<form id="login" class="form-signin" method="post"
+					action="/data/login">
 					<div
 						class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
 						<p class="lead fw-normal mb-0 me-3">Inicia sesi&oacute;n con:</p>
@@ -39,17 +39,18 @@
 
 					<!-- Email input -->
 					<div class="form-outline mb-4">
-						<input type="text" id="username"
+						<input type="text" id="username" name="username" required="required"
 							class="form-control form-control-lg formClass"
 							placeholder="Ingresa el nombre de usuario" /> <label
-							class="form-label" for="usernameField">Usuario</label>
+							class="form-label" for="username">Usuario</label>
 					</div>
 
 					<!-- Password input -->
 					<div class="form-outline mb-3">
-						<input type="password" id="passwordField"
-							class="form-control form-control-lg formClass" placeholder="Ingresa la contrase&ntilde;a" />
-						<label class="form-label" for="password">Contrase&ntilde;a</label>
+						<input type="password" id="password" name="password" required="required"
+							class="form-control form-control-lg formClass"
+							placeholder="Ingresa la contrase&ntilde;a" /> <label
+							class="form-label" for="password">Contrase&ntilde;a</label>
 					</div>
 
 					<div class="d-flex justify-content-between align-items-center">
@@ -59,12 +60,14 @@
 								id="form2Example3" /> <label class="form-check-label"
 								for="form2Example3"> Recordar contrase&ntilde;a </label>
 						</div>
-						<a href="#!" class="text-body">Olvid&eacute; la contrase&ntilde;a</a>
+						<a href="#!" class="text-body">Olvid&eacute; la
+							contrase&ntilde;a</a>
 					</div>
 
 					<div class="text-center text-lg-start mt-4 pt-2">
 						<button type="submit" class="btn btn-primary btn-lg"
-							style="padding-left: 2.5rem; padding-right: 2.5rem;">Iniciar sesi&oacute;n</button>
+							style="padding-left: 2.5rem; padding-right: 2.5rem;">Iniciar
+							sesi&oacute;n</button>
 						<p class="small fw-bold mt-2 pt-1 mb-0">
 							No tienes una cuenta? <a href="#!" class="link-danger">Registrate</a>
 						</p>
