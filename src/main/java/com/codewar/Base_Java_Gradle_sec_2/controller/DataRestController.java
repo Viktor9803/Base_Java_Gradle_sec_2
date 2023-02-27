@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RestController
 @RequestMapping(value = "/data/list")
-public class dataRestController {
+public class DataRestController {
 	
 	@Autowired
 	public dataRepository dataRepo;
