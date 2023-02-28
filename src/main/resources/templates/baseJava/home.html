@@ -9,26 +9,20 @@
 		style="height: 90vh; overflow-y: auto;">
 
 		<!--MENSAJES CONFIRMACION, ALERTA, ERROR -->
-		<div
-			class="alert alert-success alert-dismissible fade show d-flex bd-highlight"
-			th:if="${success != null}" role="alert">
-			<label th:text="${success}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<div class="alert alert-success alert-dismissable"
+			th:if="${param.success}">
+			<label>Se inici&oacute; sesi&oacute;n exitosamente</label>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
-		<div
-			class="alert alert-warning alert-dismissible fade show d-flex bd-highlight"
-			th:if="${warning != null}" role="alert">
-			<label th:text="${warning}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<div class="alert alert-warning alert-dismissable"
+			th:if="${param.warning}">
+			<label>Se encuentra una sesi&oacute;n activa</label>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
-		<div
-			class="alert alert-danger alert-dismissible fade show d-flex bd-highlight"
-			th:if="${error != null}" role="alert">
-			<label th:text="${error}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<div class="alert alert-danger alert-dismissable"
+			th:if="${param.error}">
+			<label>Nombre de usuario o contrase&ntilde;a incorrectos</label>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
 
 		<!-- <h1 th:text="'Bienvenido ' + ${#authentication.principal.username}" class="text-center"></h1> -->

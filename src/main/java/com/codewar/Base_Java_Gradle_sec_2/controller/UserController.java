@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/data")
 public class UserController {
-	
+
 	@GetMapping(value = "/login")
 	public String login() {
-		
-		return "baseJava/login";
+
+			return "baseJava/login";
+
 	}
 
 }

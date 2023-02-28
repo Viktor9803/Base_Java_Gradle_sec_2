@@ -6,8 +6,12 @@
 </head>
 <body>
 
-
 	<div class="container-fluid pt-5">
+		<div class="alert alert-danger alert-dismissable"
+			th:if="${param.error}">
+			<label>Nombre de usuario o contrase&ntilde;a incorrectos</label>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		</div>
 		<div class="row d-flex justify-content-center align-items-center">
 			<div class="col-md-9 col-lg-6 col-xl-5">
 				<img
@@ -39,7 +43,8 @@
 
 					<!-- Email input -->
 					<div class="form-outline mb-4">
-						<input type="text" id="username" name="username" required="required"
+						<input type="text" id="username" name="username"
+							required="required"
 							class="form-control form-control-lg formClass"
 							placeholder="Ingresa el nombre de usuario" /> <label
 							class="form-label" for="username">Usuario</label>
@@ -47,7 +52,8 @@
 
 					<!-- Password input -->
 					<div class="form-outline mb-3">
-						<input type="password" id="password" name="password" required="required"
+						<input type="password" id="password" name="password"
+							required="required"
 							class="form-control form-control-lg formClass"
 							placeholder="Ingresa la contrase&ntilde;a" /> <label
 							class="form-label" for="password">Contrase&ntilde;a</label>
