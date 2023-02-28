@@ -37,8 +37,9 @@ public class securityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST, "/data/list/delete/**").hasRole("ADMIN")
 				.antMatchers(HttpMethod.POST, "/data/list/deleteAll").hasRole("ADMIN")
 				.antMatchers(HttpMethod.POST, "/data/list/update/**").hasAnyRole("USER", "ADMIN")
+				.antMatchers("/data/user/listUser").hasRole("ADMIN")
 				.and()
-					.csrf().disable()
+				.csrf().disable()
 					.formLogin().loginPage("/data/login").defaultSuccessUrl("/data/home?success").failureUrl("/data/login?error").permitAll()
 				.and()
 		        	.logout().logoutSuccessUrl("/data/home").invalidateHttpSession(true).permitAll();

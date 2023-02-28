@@ -17,5 +17,11 @@ public class UserController {
 		return "baseJava/home";
 
 	}
+	
+	@GetMapping(value = "/data/user/list")
+	public String ListUser() {
+		return "baseJava/UserListData";
+
+	}
 
 }

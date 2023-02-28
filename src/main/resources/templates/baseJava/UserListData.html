@@ -7,24 +7,26 @@
 
 	<div class="jumbotron bg-white-50 px-5">
 
-		<h1 class="text-primary text-center mt-4">Registros en la DB</h1>
+		<h1 class="text-primary text-center mt-4">Usuarios registrados</h1>
 
 		<div class="text-lg-start text-center container">
-			<input type="button" id="btnFormModal" class="btn btn-primary" value="Agregar registro">
+			<input type="button" id="btnFormModalUser" class="btn btn-primary" value="Agregar Usuario">
 		</div>
 	</div>
 
 	<div class="container pt-3">
-		<table id="dataListRequest" class="table table-striped table-bordered table-hover text-center font-weight-bold table-sm	table-responsive-sm">
+		<table id="userListRequest" class="table table-striped table-bordered table-hover text-center font-weight-bold table-sm	table-responsive-sm">
 			<thead>
 				<tr class="text-capitalize text-center">
 					<th class="text-center">ID</th>
-					<th class="text-center">CI</th>
+					<th class="text-center">Nombre de usuario</th>
 					<th class="text-center">Nombre</th>
 					<th class="text-center">Apellido</th>
-					<th class="text-center">Tel&eacute;fono</th>
-					<th class="text-center">Email</th>
-					<th class="text-center">G&eacute;nero</th>
+					<th class="text-center">Correo electr&oacute;nico</th>
+					<th class="text-center">Edad</th>
+					<th class="text-center">Creaci&oacute;n</th>
+					<th class="text-center">Activo</th>
+					<th class="text-center">Rol de usuario</th>
 					<th class="text-center">Editar</th>
 					<th class="text-center">Eliminar</th>
 				</tr>
@@ -35,7 +37,7 @@
 	</div>
 
 	<!-- MODAL NUEVO REGISTRO -->
-	<div th:fragment="modal-data-form" id="formModal" class="modal fade show" role="dialog" aria-hidden="true" style="width: 100% !important;">
+	<!-- <div th:fragment="modal-data-form" id="formModal" class="modal fade show" role="dialog" aria-hidden="true" style="width: 100% !important;">
 		<div class="modal-dialog modal-xl">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -91,11 +93,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<footer th:replace="baseJava/layout :: footer"></footer>
 
-	<script th:inline="javascript" th:src="@{/JS/dataRestController.js}"></script>
+	<script th:inline="javascript" th:src="@{/JS/userRestController.js}"></script>
 
 </body>
 </html>
