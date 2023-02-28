@@ -6,11 +6,13 @@
 </head>
 <body>
 
+	
 	<div class="container-fluid pt-5">
-		<div class="alert alert-danger alert-dismissable"
-			th:if="${param.error}">
-			<label>Nombre de usuario o contrase&ntilde;a incorrectos</label>
-			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert" th:if="${param.error}">
+			Nombre de usuario o contrase&ntilde;a incorrectos
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
 		</div>
 		<div class="row d-flex justify-content-center align-items-center">
 			<div class="col-md-9 col-lg-6 col-xl-5">
