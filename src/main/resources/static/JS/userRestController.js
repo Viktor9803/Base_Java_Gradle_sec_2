@@ -16,6 +16,38 @@ $(document).ready(function() {
 			$(this).removeClass('is-valid').removeClass('border border-success').addClass('border border-danger');
 		}
 	});
+	
+/************ FUNCIÓN PARA ELIMINAR USUARIO EVENTO BTN / AJAX ************/	
+
+	$('body').on('click', '.destruirU', function(e) {
+		e.preventDefault();
+		//console.log('click');
+		eliminarUsuario();
+	});
+	
+	function eliminarUsuario() {
+		$.ajax({
+			type: "POST",
+			url: '/data/user/delete/' + $('#btnDeleteUser').attr('idDlt')
+		}).done(function() {
+			Swal.fire({
+				icon: 'success',
+				title: 'Usuario eliminado exitosamente',
+				showConfirmButton: false,
+				timer: 1500
+			})
+			userListRequest();
+
+		}).fail(function() {
+			Swal.fire({
+				icon: 'error',
+				title: 'No se pudo ejecutar el servicio',
+				showConfirmButton: false,
+				timer: 1500
+			})
+			userListRequest();
+		});
+	}
 
 	/**********AJAX LISTAR USUARIOS (DATATABLE)***********/
 	userListRequest();
@@ -102,13 +134,13 @@ $(document).ready(function() {
 				{
 					"data": "boton1",
 					"render": function(data, type, row, full) {
-						return '<a id="btnEditData" type="button" class="btnEdit btn btn-primary btn-sm"> Editar datos </a>';
+						return '<a id="btnEditUser" type="button" class="btnEditU btn btn-primary btn-sm" idEdt="'+ row["id"] +'"> Editar datos </a>';
 					}
 				},
 				{
 					"data": "boton2",
 					"render": function(data, type, row, full) {
-						return '<a id="btnDeleteData" type="button" class="destruir btn btn-danger btn-sm"> Eliminar datos </a>';
+						return '<a id="btnDeleteUser" type="button" class="destruirU btn btn-danger btn-sm" idDlt="'+ row["id"] +'"> Eliminar datos </a>';
 					}
 				},
 			],
