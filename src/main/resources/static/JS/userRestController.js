@@ -16,15 +16,131 @@ $(document).ready(function() {
 			$(this).removeClass('is-valid').removeClass('border border-success').addClass('border border-danger');
 		}
 	});
+
+	/************EVENTO SUBMIT BOTON EVIAR FORMULARIO PARA NUEVO REGISTRO / ACTUALIZAR REGISTRO************/
+	/*$('#formData').on('submit', function(e) {
+		//console.log($('.referenceForm.is-valid').length);
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		if ($('.dataModalFormClass.is-valid').length == 6) {
+			$('.dataModalFormClass').val().trim();
+			//console.log('Envio del rest');
+			//console.log($('.dataModalFormClass.is-valid').length());
+			if (idReg == undefined || idReg == '' || idReg == null) {
+				nuevoRegistro();
+			} else {
+				actualizarRegistro();
+			}
+		} else {
+			//console.log('Formulario incompleto');
+			$(".dataModalFormClass").each(function() {
+				//Validaciones formulario
+				$(this).trigger('focus');
+				$(this).trigger('blur');
+			});
+		}
+	});*/
+
+	/************ FUNCIÓN PARA EDITAR USUARIO EVENTO BTN / AJAX ************/
+	/*$('body').on('click', '.btnEditU', function(e) {
+			e.preventDefault();
+			ciEdit = $(this).attr('ciedt');
+			//console.log(ciEdit);
+			//##### Limpiar formulario
+			$('#ciField').val('');
+			$('#nameField').val('');
+			$('#lnameField').val('');
+			$('#telfField').val('');
+			$('#emailField').val('');
+			$('#genderField').val($('#genderField').attr('selected'));
+			$('.dataModalFormClass').addClass('is-valid').removeClass('border border-danger').addClass('border border-success');
 	
-/************ FUNCIÓN PARA ELIMINAR USUARIO EVENTO BTN / AJAX ************/	
+			//##### ocultar validaciones
+			$('#validCi').attr('hidden', 'hidden');
+			$('#validName').attr('hidden', 'hidden');
+			$('#validLname').attr('hidden', 'hidden');
+			$('#validTelf').attr('hidden', 'hidden');
+			$('#validEmail').attr('hidden', 'hidden');
+			$('#validGender').attr('hidden', 'hidden');
+	
+			listarUsuario();
+	
+			$('#formModal').modal('show');
+			$('#titleModalReg').text('Editar registro');
+		});*/
+
+	/*function listarUsuario() {
+		$.ajax({
+			type: "GET",
+			url: '/data/user/findIdUser/' + $('#btnEditUser').attr('idDlt'),
+			success: function(result) {
+				console.log(result);
+				$('#fNameField').val(result[0].fname);
+
+				$('#lNameField').val(result[0].lname);
+				$('#emailField').val(result[0].email);
+				$('#ageField').val(result[0].age);
+				$('#roleField').val(result[0].role);
+				idReg = result[0].id;
+			},
+			error: function(error) {
+				console.log("error", error);
+			}
+		}).done(function() {
+			console.log('Exito');
+
+		}).fail(function() {
+			Swal.fire({
+				icon: 'error',
+				title: 'No se pudo ejecutar el servicio',
+				showConfirmButton: false,
+				timer: 1500
+			})
+		});
+	}*/
+
+	/*function actualizarUsuario() {
+		$.ajax({
+			type: "POST",
+			url: '/data/user/update/' + $('#btnEditUser').attr('idEdt') + '/' + $('#fNameField').val() + '/' + $('#lNameField').val() + '/' + $('#emailField').val() + '/' + $('#ageField').val() + '/' + $('#roleField').val()
+		}).done(function() {
+			Swal.fire({
+				icon: 'success',
+				title: 'Registro actualizado exitosamente',
+				showConfirmButton: false,
+				timer: 1500
+			})
+			$("#formModal").modal('hide');
+
+			//##### Limpiar formulario
+			$('#fNameField').val('');
+			$('#lNameField').val('');
+			$('#emailField').val('');
+			$('#ageField').val('');
+			$('#roleField').val('');
+			//$('#genderField').val($('#genderField').attr('selected'));
+			$('.dataModalFormClass').removeClass('is-valid').removeClass('border border-success');
+
+			userListRequest();
+
+		}).fail(function() {
+			Swal.fire({
+				icon: 'error',
+				title: 'No se pudo ejecutar el servicio',
+				showConfirmButton: false,
+				timer: 1500
+			})
+		});
+	}*/
+
+	/************ FUNCIÓN PARA ELIMINAR USUARIO EVENTO BTN / AJAX ************/
 
 	$('body').on('click', '.destruirU', function(e) {
 		e.preventDefault();
 		//console.log('click');
 		eliminarUsuario();
 	});
-	
+
 	function eliminarUsuario() {
 		$.ajax({
 			type: "POST",
@@ -115,7 +231,7 @@ $(document).ready(function() {
 				},
 				{
 					"data": "create_date",
-					"render": function(data, type, row, full) {						
+					"render": function(data, type, row, full) {
 						return new Date(data).toLocaleString();
 					}
 				},
@@ -134,13 +250,13 @@ $(document).ready(function() {
 				{
 					"data": "boton1",
 					"render": function(data, type, row, full) {
-						return '<a id="btnEditUser" type="button" class="btnEditU btn btn-primary btn-sm" idEdt="'+ row["id"] +'"> Editar datos </a>';
+						return '<a id="btnEditUser" type="button" class="btnEditU btn btn-primary btn-sm" idEdt="' + row["id"] + '"> Editar datos </a>';
 					}
 				},
 				{
 					"data": "boton2",
 					"render": function(data, type, row, full) {
-						return '<a id="btnDeleteUser" type="button" class="destruirU btn btn-danger btn-sm" idDlt="'+ row["id"] +'"> Eliminar datos </a>';
+						return '<a id="btnDeleteUser" type="button" class="destruirU btn btn-danger btn-sm" idDlt="' + row["id"] + '"> Eliminar datos </a>';
 					}
 				},
 			],
