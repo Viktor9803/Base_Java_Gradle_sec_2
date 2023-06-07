@@ -27,7 +27,7 @@ public class UserRestController {
 	@GetMapping(value = "/listUser")
 	public List<Users> userListData() {
 		List<Users> listUser = userRepo.findAllUserList();
-		log.info("DataUser from table {}", listUser);
+		//log.info("DataUser from table {}", listUser);
 		return listUser;
 
 	}
@@ -39,18 +39,18 @@ public class UserRestController {
 			@PathVariable("email") String email, @PathVariable("age") Integer age,
 			@PathVariable("active") boolean active, @PathVariable("role") String role) {
 
-		log.info("Datos que se agregarán: {}, {}, {}, {}, {}, {}, {}, {}", username, fname, lname, email, age, active,
-				role);
+		//log.info("Datos que se agregarï¿½n: {}, {}, {}, {}, {}, {}, {}, {}", username, fname, lname, email, age, active,
+			//	role);
 		userRepo.createUser(username, password, fname, lname, email, age, active, role);
-		log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}, {}, {}", username, fname, lname, email,
-				age, active, role);
+		//log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}, {}, {}", username, fname, lname, email,
+			//	age, active, role);
 	}
 
 //	Func findById
 	@GetMapping(value = "/findIdUser/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Users> listUserByID(@PathVariable("id") Integer id) {
 		List<Users> listUserByID = userRepo.findByIdUser(id);
-		log.info("Datos {}", listUserByID);
+		//log.info("Datos {}", listUserByID);
 		return listUserByID;
 	}
 
@@ -58,7 +58,7 @@ public class UserRestController {
 	@PostMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteUserById(@PathVariable("id") Integer id) {
 		userRepo.deleteByIdUser(id);
-		log.info("Datos de usuario con id: {} eliminados", id);
+		//log.info("Datos de usuario con id: {} eliminados", id);
 	}
 
 //	Func update
@@ -68,7 +68,7 @@ public class UserRestController {
 			@PathVariable("role") String role) {
 		
 		userRepo.updateDUser(id, fname, lname, email, age, role);
-		log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", id, fname, lname, email, age, role);
+		//log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", id, fname, lname, email, age, role);
 	}
 
 }

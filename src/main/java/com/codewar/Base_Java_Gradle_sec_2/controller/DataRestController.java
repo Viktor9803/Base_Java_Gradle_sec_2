@@ -27,7 +27,7 @@ public class DataRestController {
 	@GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<DataC> listData() {
 		List<DataC> findList = dataRepo.findAllList();
-		log.info("Datatable {}", findList);
+		//log.info("Datatable {}", findList);
 		return findList;
 	}
 
@@ -37,16 +37,16 @@ public class DataRestController {
 			@PathVariable("lname") String lname, @PathVariable("phone") Integer phone, @PathVariable("email") String email,
 			@PathVariable("gender") String gender) {
 		
-		log.info("Datos {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
+		//log.info("Datos {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
 		dataRepo.createData(ci, name, lname, phone, email, gender);
-		log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
+		//log.info("Datos agregados satisfactoriamente {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
 	}
 
 //	Func findById
 	@GetMapping(value = "/findCi/{ci}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<DataC> listDataByCi(@PathVariable("ci") Integer ci) {
 		List<DataC> findListCi = dataRepo.findByCiList(ci);
-		log.info("Datos {}", findListCi);
+		//log.info("Datos {}", findListCi);
 		return findListCi;		
 	}
 	
@@ -54,7 +54,7 @@ public class DataRestController {
 	@PostMapping(value = "/delete/{ci}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteDataByCi(@PathVariable("ci") Integer ci) {
 		dataRepo.deleteByCiList(ci);
-		log.info("Datos de la ci: {} eliminados", ci);		
+		//log.info("Datos de la ci: {} eliminados", ci);		
 	}
 	
 //	Func deleteAll
@@ -70,7 +70,7 @@ public class DataRestController {
 			@PathVariable("gender") String gender) {
 		
 		dataRepo.updateData(ci, name, lname, phone, email, gender);
-		log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
+		//log.info("Datos actualizados: {}, {}, {}, {}, {}, {}", ci, name, lname, phone, email, gender);
 	}
 
 }
