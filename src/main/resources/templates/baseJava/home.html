@@ -9,53 +9,60 @@
 		style="height: 90vh; overflow-y: auto;">
 
 		<!--MENSAJES CONFIRMACION, ALERTA, ERROR -->
-		<div
-			class="alert alert-success alert-dismissible fade show d-flex bd-highlight"
-			th:if="${success != null}" role="alert">
-			<label th:text="${success}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<!-- mensajes con parametros url en SecurityConfig -->
+		<div class="alert alert-success alert-dismissible fade show"
+			role="alert" th:if="${param.success}">
+			Se inici&oacute; sesi&oacute;n exitosamente
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
 		</div>
-		<div
-			class="alert alert-warning alert-dismissible fade show d-flex bd-highlight"
-			th:if="${warning != null}" role="alert">
-			<label th:text="${warning}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<div class="alert alert-warning alert-dismissible fade show"
+			role="alert" th:if="${param.warning}">
+			Se encuentra una sesi&oacute;n activa
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
 		</div>
-		<div
-			class="alert alert-danger alert-dismissible fade show d-flex bd-highlight"
-			th:if="${error != null}" role="alert">
-			<label th:text="${error}" class="w-100 bd-highlight"></label>
-			<button type="button" class="btn-close flex-shrink-1 bd-highlight"
-				data-bs-dismiss="alert" aria-label="Close"></button>
+		<div class="alert alert-danger alert-dismissible fade show"
+			role="alert" th:if="${param.error}">
+			Nombre de usuario o contrase&ntilde;a incorrectos
+			<button type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close"></button>
 		</div>
 
-		<h1 class="text-center">BIENVENIDO</h1>
+		<!-- <h1 th:text="'Bienvenido ' + ${#authentication.principal.username}" class="text-center"></h1> -->
+		
+		<!-- Obtener datos de sesión por medio de objetos userDetails, se debe realizar llamando al metodo de la clase myUserDetails sobreescrito -->
+		<div th:if="${#authentication.name != 'anonymousUser'}">
+			<h1 th:text="'Bienvenido ' + ${#authentication.name}" class="text-center"></h1>
+		</div>
+    	<div th:unless="${#authentication.name != 'anonymousUser'}">
+    		<h1 th:text="'Bienvenido por favor inicia sesi&oacute;n'" class="text-center"></h1>
+    	</div>
 
-		<!-- <div class="container">
-
-			<div class="starter-template">
-				<h1 th:text="${msg.title}"></h1>
-
-				<p class="bg-primary" th:text="${msg.content}"></p>
-
-				<div sec:authorize="hasRole('ROLE_HOME')">
-					El tipo de usuario es ROLE_ADMIN display
-					<p class="bg-info" th:text="${msg.etraInfo}"></p>
+		<div id="carouselExampleControls" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/171.jpg" class="d-block w-100" alt="...">
 				</div>
-				<div sec:authorize="hasRole('ROLE_ADMIN')">
-					El tipo de usuario es ROLE_ADMIN display
-					<p class="bg-info">Felicitaciones, tiene el permiso ROLE_ADMIN
-					</p>
+				<div class="carousel-item">
+					<img src="/images/171.jpg" class="d-block w-100" alt="...">
 				</div>
-
-				<form th:action="@{/logout}" method="post">
-					<input type="submit" class="btn btn-primary" value="Cerrar sesión" />
-				</form>
+				<div class="carousel-item">
+					<img src="/images/171.jpg" class="d-block w-100" alt="...">
+				</div>
 			</div>
-
-		</div> -->
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 
 	</div>
 

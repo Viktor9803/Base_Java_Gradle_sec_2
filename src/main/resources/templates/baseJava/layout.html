@@ -24,17 +24,40 @@
 
 <body>
 
-	<footer id="footer" th:fragment="footer" class="container" style="max-height: 100%;">
+	<footer id="footer" th:fragment="footer" class="" style="max-height: 100%;">
 
-		<div class="container" th:fragment="pie-pagina">
-			<p class="text-center">
-				&copy; 2021 AppCRUD | Aplicaci&oacute;n B&aacute;sica Desarrollada con Spring Boot 4 | Autor: Victor J. Hern&aacute;ndez M | &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-			</p>
+		<div th:fragment="pie-pagina"
+			class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+			<!-- Copyright -->
+			<div class="text-white mb-3 mb-md-0 text-center">
+				Copyright &copy; 2020. All rights reserved. 2021 AppCRUD |
+				Aplicaci&oacute;n B&aacute;sica Desarrollada con Spring Boot 4 |
+				Autor: Victor J. Hern&aacute;ndez M | &middot; 
+				<a href="#" class="text-white">Privacy</a>
+				&middot; <a href="#" class="text-white">Terms</a>
+			</div>
+
+			<!-- Right -->
+			<div>
+				<a href="#" class="text-white me-4"> 
+					<i class="fab fa-facebook"></i>
+				</a> 
+				<a href="#" class="text-white me-4"> 
+					<i class="fab fa-twitter"></i>
+				</a> 
+				<a href="#" class="text-white me-4"> 
+					<i class="fab fa-google"></i>
+				</a> 
+				<a href="#" class="text-white"> 
+					<i class="fab fa-linkedin-in"></i>
+				</a>
+			</div>
+			<!-- Right -->
 		</div>
 
 		<!-- ############################## Javascript ############################## -->
 		<script th:inline="javascript" th:src="@{/Bootstrap-5.1.3/dist/js/bootstrap.min.js}"></script>
-		<script th:inline="javascript" th:src="@{/Bootstrap-5.1.3/dist/js/bootstrap.bundle.min.js}"></script>
+		<!-- <script th:inline="javascript" th:src="@{/Bootstrap-5.1.3/dist/js/bootstrap.bundle.min.js}"></script> -->
 		
 		<script th:inline="javascript" th:src="@{/Fontawesome-6.1.1/fontawesome-free-6.1.1-web/js/all.min.js}"></script>
 		<script th:inline="javascript" th:src="@{/Fontawesome-6.1.1/fontawesome-free-6.1.1-web/js/fontawesome.min.js}"></script>

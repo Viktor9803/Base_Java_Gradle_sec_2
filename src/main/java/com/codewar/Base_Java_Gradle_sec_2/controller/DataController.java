@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/data")
-public class dataController {
+public class DataController {
 	
 	@GetMapping(value = "/home")
 	public String home() {
@@ -17,7 +17,7 @@ public class dataController {
 	@GetMapping(value = "/list")
 	public String listData() {
 
-		return "baseJava/ListData.html";
+		return "baseJava/ListData";
 	}
 
 }
